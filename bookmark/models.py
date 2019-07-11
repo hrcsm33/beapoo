@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 # CharField	제한된 문자열 필드 타입. 최대 길이를 max_length 옵션에 지정해야 한다.
@@ -16,8 +17,12 @@ from django.db import models
 
 
 class Bookmark(models.Model):
-    site_name = models.CharField(max_length=100)
+    site_name = models.CharField(max_length=100 ,verbose_name="질문")
     url = models.URLField('Site url')
 
     def __str__(self):
         return self.site_name + "-" + self.url
+
+    #수정성공시 이동
+    def get_absolute_url(self):
+        return reverse("detail",args=[str(self.id)])

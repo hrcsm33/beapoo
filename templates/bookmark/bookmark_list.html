@@ -22,8 +22,8 @@
             <td> {{ forloop.counter }}</td>
             <td><a href="{% url 'detail' pk=bookmark.id %}">{{ bookmark.site_name }}</a></td>
             <td>{{ bookmark.url }}</td>
-            <td>modify</td>
-            <td>Delete</td>
+            <td><a href="{% url 'update' pk=bookmark.id %}">modify</a></td>
+            <td><a href="{% url 'delete' pk=bookmark.id %}">delete</a></td>
         </tr>
     {% endfor %}
 </table>
