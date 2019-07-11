@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <a href="">add bookmark</a>
+</div>
+<table>
+        <tr>
+            <th>#</th>
+            <th>site</th>
+            <th>url</th>
+            <th>modify</th>
+            <th>delete</th>
+        </tr>
+    {% for bookmark in object_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ bookmark.sitename }}</td>
+            <td>{{ bookmark.url }}</td>
+            <td>modify</td>
+            <td>Delete</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
