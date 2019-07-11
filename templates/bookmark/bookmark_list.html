@@ -7,7 +7,7 @@
 <body>
 
 <div>
-    <a href="">add bookmark</a>
+    <a href="{% url 'add' %}" class="btn btn-info">add bookmark</a>
 </div>
 <table>
         <tr>
@@ -19,14 +19,13 @@
         </tr>
     {% for bookmark in object_list %}
         <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ bookmark.sitename }}</td>
+            <td> {{ forloop.counter }}</td>
+            <td><a href="{% url 'detail' pk=bookmark.id %}">{{ bookmark.site_name }}</a></td>
             <td>{{ bookmark.url }}</td>
             <td>modify</td>
             <td>Delete</td>
         </tr>
     {% endfor %}
 </table>
-
 </body>
 </html>

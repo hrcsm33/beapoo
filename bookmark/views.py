@@ -3,6 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 from .models import Bookmark
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView
+from django.urls import  reverse_lazy
+from django.views.generic.detail import DetailView
+from django import forms
 
 # 뷰에는 함수형 뷰클래스와 클래스형 뷰클스가있다
 class BookMarkListView(ListView):
@@ -22,4 +26,17 @@ class BookMarkListView(ListView):
     """
 
     model = Bookmark
+
+class BookmarkCreateView(CreateView):
+    model = Bookmark
+    fields = ['site_name', 'url']
+    success_url = reverse_lazy('list')
+    # 사용할 템플릿의 접미사만 변경하는 설정값
+    template_name_suffix = '_create'
+
+class BookmarkDetailView(DetailView):
+    model = Bookmark
+
+
+
 
